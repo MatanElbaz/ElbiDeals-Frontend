@@ -1,0 +1,47 @@
+<!-- <input required type="number" id="companyId" placeholder="Company ID" [(ngModel)]="comapnyId" name="companyId">
+<button (click)="findAdminCompanyById(couponId)">getCompany</button> -->
+
+
+<div>
+   
+    <table id="myTable" *ngIf="companies" style=" border: 1px;">
+
+        <caption>
+            <h3>Companies</h3>
+            <input  type="text" id="myInput" (input)="applyFilter($event)" placeholder="Search Company">
+            <input  type="text" id="myInput" (input)="applyFilterEmail($event)" placeholder="Search by Email">
+        </caption>
+        <thead>
+            <tr class="header">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of findedCompanies" >
+                <td routerLink="/company-details/{{c.id}}">{{c.id}}</td>
+                <td routerLink="/company-details/{{c.id}}">{{c.name}}</td>
+                <td routerLink="/company-details/{{c.id}}">{{c.email}}</td>
+                <td routerLink="/company-details/{{c.id}}">{{c.password}}</td>
+                <td>
+                    <button type="button" class="btn" (click)="deleteCompany(c.id)"><i class="fa fa-trash"></i></button>
+                </td>
+                <td>
+                    <button type="button" class="btn" routerLink="/admin/edit-company/{{c.id}}"><i class="fa fa-edit" ></i></button>
+                </td>
+                    
+                
+            </tr>
+            
+            
+        </tbody>
+    </table>
+    <div *ngIf = "!companies">
+       <p> There is no Companies in the system.</p>
+       <p> To add new Company,Click <a routerLink="/admin/add-company">here</a></p>
+    </div>
+</div>

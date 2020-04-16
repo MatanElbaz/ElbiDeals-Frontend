@@ -1,0 +1,38 @@
+<div class="con">
+    <div *ngIf="coupon" >
+        
+    <div class="card">
+        <button class="buy" *ngIf="clientType == 1" style="font-size: large;" routerLink="/customer/purchase-coupon/{{coupon.id}}">Buy now!</button>
+        <img src="{{coupon?.imageURL}}" alt="Coupon image" style="width:100%">
+    
+        <h1>Coupon Details:</h1>
+        <h4>Title:</h4>
+        <p>{{coupon?.title}}</p>
+        <h4>Company name:</h4>
+        <p>{{coupon?.companyName}}</p>
+        <h4>Start Date:</h4>
+        <p>{{coupon?.startDate}}</p>
+        <h4>End Date:</h4>
+        <p>{{coupon?.endDate}}</p>
+        <h4>Category:</h4>
+        <p>{{coupon?.category}}</p>
+        <h4>Amount:</h4>
+        <p>{{coupon?.amount}}</p>
+        <h4>Description:</h4>
+        <p>{{coupon?.description}}</p>
+        <h4>Price:</h4>
+        <p class="price">{{coupon?.price}}</p>
+        <br>
+         <!-- <img style="width: 300px;" src="assets/imagess/products/{{product.id}}.jpg" alt="coupon"> -->
+        <button class="but" style="font-size: large;" onclick="history.back(-1)">Go Back</button>
+        
+      </div>
+    </div>
+    </div>
+
+    <div *ngIf="!coupon">
+        <h1 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Coupon not found</h1>
+        <app-not-found></app-not-found>
+    </div>
+    
+    

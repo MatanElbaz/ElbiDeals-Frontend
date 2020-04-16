@@ -1,0 +1,32 @@
+main{
+     height: 100%;
+     margin: 0;
+}
+
+section {
+    
+    padding: 0px 0px 10px 0;  
+       min-height: 100%;
+            box-sizing: border-box ;
+                 position: relative;
+                      text-align: center;
+                           border:0px solid black;
+                                background-image: linear-gradient(white, white); 
+                                grid-template-columns: repeat();
+                               } 
+
+
+header {
+    height: 238px;
+         line-height: 64px; 
+             border: 0 solid rgb(207, 94, 94);  
+                border-bottom-width: 2px; } 
+
+footer { 
+   height: 30px;   
+     line-height: 30px;   
+       width: 100%; 
+           border: 0 solid rgb(207, 94, 94);   
+             border-top-width: 2px;  
+               position: fixed;  
+                  bottom: 0px; }

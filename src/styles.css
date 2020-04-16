@@ -1,0 +1,8 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    background-color: rgba(207, 94, 94, 0.404);
+    min-height: 100vh;
+}
+
+  

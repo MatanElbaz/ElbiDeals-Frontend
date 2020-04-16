@@ -1,0 +1,24 @@
+<div class="topnav">
+    <a routerLink="home" routerLinkActive="active">Home</a>
+    <a routerLink="deals" routerLinkActive="active">Our Deals</a>
+    <a routerLink="about" routerLinkActive="active">About us</a>
+    <a routerLink="contact" routerLinkActive="active">Contact</a>
+    
+    <a id="logout" *ngIf="online() == true" routerLink="login" routerLinkActive="bb" (click)="logout()">Log-Out</a>
+    
+    <div class="search-container">
+        <form action="/action_page.php">
+            
+            <input type="text" (input)="applyFilter($event)" placeholder="Search.." name="search">
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <button type="submit"><i class="fa fa-search"></i></button>
+
+        </form>
+
+    </div>
+</div>
+
+<div style="padding-left:16px">
+
+</div>

@@ -1,0 +1,95 @@
+<form action="action_page.php" style="border:1px solid #ccc">
+   <div class="container">
+     <h1>Add new Company</h1>
+     <p>Please fill in this form to create new company.</p>
+     <hr class="sep-2" />
+ 
+     <label for="email"><b>Company Name</b></label> 
+     <br>
+      <input ngModel name="companyName" type="text" name="companyName" [formControl]= "companyName"
+      [ngClass]="{'invalid':companyName.invalid && companyName.touched}"  placeholder="Company name.." >
+ <br>
+ <ul class="error" *ngIf="companyName.dirty && companyName.invalid">
+  <li *ngIf="companyName.errors?.required && companyName.touched">Name is required</li>
+  <li *ngIf="companyName.errors?.minlength && companyName.touched">Name too short. at least {{companyName.errors.minlength.requiredLength}} characters</li>
+  <li *ngIf="companyName.errors?.maxlength && companyName.dirty">Name too long. max {{companyName.errors.maxlength.requiredLength}} characters</li>
+  <li *ngIf="companyName.dirty && companyName.errors?.pattern">Name should start with a capital letter</li>
+</ul>
+<br>
+     <label for="psw"><b>Company Email</b></label> <br>
+     <input type="text" name="companyEmail" [formControl]= "companyEmail"
+     [ngClass]="{'invalid':companyEmail.invalid && companyEmail.touched}" placeholder="Company email.." >
+ <br>
+ <ul class="error" *ngIf="companyEmail.dirty && companyEmail.invalid">
+  <li *ngIf="companyEmail.errors?.required && companyEmail.touched">Email is required</li>
+  <li *ngIf="companyEmail.dirty && companyEmail.errors?.pattern">Invalid Email</li>
+</ul>
+<br>
+
+     <label for="psw-repeat"><b>Company Password</b></label> <br>
+     <input type="password" name="companyPassword" [formControl]= "companyPassword"
+     [ngClass]="{'invalid':companyPassword.invalid && companyPassword.touched}" placeholder="Company password.." >
+    <br>
+    <ul class="error" *ngIf="companyPassword.dirty && companyPassword.invalid">
+      
+      <li *ngIf="companyPassword.errors?.minlength && companyPassword.touched">Password too short. at least {{companyPassword.errors.minlength.requiredLength}} characters</li>
+      <li *ngIf="companyPassword.errors?.maxlength && companyPassword.dirty">Password too long. max {{companyPassword.errors.maxlength.requiredLength}} characters</li>
+      <li *ngIf="companyPassword.errors?.required && companyPassword.touched">Password is required</li>
+      <li *ngIf="companyPassword.dirty && companyPassword.errors?.pattern">Invalid password</li>
+      
+    </ul>
+    <br>
+     
+ 
+     
+ 
+     <div class="clearfix">
+       <button routerLink="/home" type="button" class="cancelbtn">Cancel</button>
+       <button class="signupbtn" [disabled]="!registrationForm.valid" (click)="addCompany()">Add Comapny</button>
+       
+     </div>
+   </div>
+ </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section>
+
+
+<form>
+   Add new Company
+   <br>
+    <p>Company Name: <input type="text" name="companyName" [formControl]= "companyName"  placeholder="Company name.." required></p>
+    <br>
+    <p>Company Email: <input type="text" name="companyEmail" [formControl]= "companyEmail" placeholder="Company email.." required></p>
+    <p class="error-message" *ngIf="companyEmail.get('email')">{{validation.message}}</p>
+    <br>
+    <p>Company Password: <input type="text" name="companyPassword" [formControl]= "companyPassword" placeholder="Company password.." required></p>
+    <br>
+    
+
+<button (click)="addCompany()">Add Comapny</button>
+</form>
+<br>
+<a routerLink="/home">Back to home</a>
+</section> -->
+
+
+    
+    
+    
+      

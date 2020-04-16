@@ -1,0 +1,8 @@
+
+        <app-login *ngIf="modeService.clientType == null"></app-login>  
+        <app-admin-menu *ngIf="modeService.clientType == '-1'"></app-admin-menu>
+        <app-company-menu *ngIf="modeService.clientType == '2'"></app-company-menu>
+        <app-customer-menu *ngIf="modeService.clientType == '1'"></app-customer-menu>   
+       
+        
+    

@@ -1,0 +1,43 @@
+<form action="action_page.php" style="border:1px solid #ccc">
+    <div class="container">
+      <h1>Edit my profile</h1>
+      <p>Please fill in this form to update your profile.</p>
+      <hr class="sep-2" />
+  
+      
+      <label for="email"><b>Admin Email</b></label>
+      <br>
+      <input type="text" name="adminEmail" [formControl]="adminEmail" 
+      [ngClass]="{'invalid':adminEmail.invalid && adminEmail.touched}" placeholder="Email.." value="{{admin.email}}" >
+      <br>
+      <ul class="error" *ngIf="adminEmail.dirty && adminEmail.invalid">
+        <li *ngIf="adminEmail.errors?.required && adminEmail.touched">Email is required</li>
+        <li *ngIf="adminEmail.dirty && adminEmail.errors?.pattern">Invalid Email</li>
+      </ul>
+      <br>
+      <label for="psw"><b>Admin Password</b></label>
+      <br>
+      <input type="password" name="adminPassword" [formControl]="adminPassword" 
+      [ngClass]="{'invalid':adminPassword.invalid && adminPassword.touched}" placeholder="Password.." value="{{admin.password}}" >      
+      <br>
+      <ul class="error" *ngIf="adminPassword.dirty && adminPassword.invalid">
+      
+        <li *ngIf="adminPassword.errors?.minlength && adminPassword.touched">Password too short. at least {{adminPassword.errors.minlength.requiredLength}} characters</li>
+        <li *ngIf="adminPassword.errors?.maxlength && adminPassword.dirty">Password too long. max {{adminPassword.errors.maxlength.requiredLength}} characters</li>
+        <li *ngIf="adminPassword.errors?.required && adminPassword.touched">Password is required</li>
+        <li *ngIf="adminPassword.dirty && adminPassword.errors?.pattern">Invalid password</li>
+        
+      </ul>
+      <br>
+      
+  
+      <div class="clearfix">
+        <button routerLink="/home" type="button" class="cancelbtn">Cancel</button>
+        <button class="signupbtn" [disabled]="!registrationForm.valid" (click)="updateAdmin()">Update</button>
+        
+      </div>
+    </div>
+  </form>
+
+
+

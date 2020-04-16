@@ -1,0 +1,7 @@
+<div *ngIf="modeService.mode == modeService.LOOGED_OUT">
+    <app-login></app-login>
+</div>
+
+<div *ngIf="modeService.mode == modeService.LOOGED_IN">
+    <app-home></app-home>
+</div>

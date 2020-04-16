@@ -1,0 +1,39 @@
+<!-- <html lang="en-US"> -->
+<div class="background">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+  </head>
+  <div id="login">
+    <form action="#" #loginInfo="ngForm" name='form-login'>
+      <span class="fontawesome-user"></span>
+      <input #userEmail="ngModel" required type="text" id="email" placeholder="Email" [(ngModel)]="email" name="email"
+        autocomplete="email">
+
+      <div *ngIf="userEmail.errors && (userEmail.dirty || userEmail.touched)" class="alert alert-danger">
+        <div class="req" [hidden]="!userEmail.errors.required">
+      Email is required
+        </div>
+      </div>
+
+      <span class="fontawesome-lock"></span>
+
+      <input #userPass="ngModel" required type="password" id="password" placeholder="Password" [(ngModel)]="password"
+        name="password" autocomplete="current-password">
+
+      <div *ngIf="userPass.errors && (userPass.dirty || userPass.touched)" class="alert alert-danger">
+        <div class="req" [hidden]="!userPass.errors.required">
+        Password is required
+        </div>
+      </div>
+
+      <input [disabled]="!loginInfo.form.valid" type="submit" value="Login" (click)="login()" name="login">
+
+
+    </form>
+
+  </div>

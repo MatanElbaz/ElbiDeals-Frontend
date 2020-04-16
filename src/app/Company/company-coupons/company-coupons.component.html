@@ -1,0 +1,56 @@
+
+<div>
+    <table id="myTable" *ngIf="coupons" style=" border: 1px;">
+
+        <caption>
+            <h3>Your Company Coupons</h3>
+            <input type="text" id="myInput" (input)="applyFilter($event)" placeholder="Search Coupon">
+        </caption>
+        <thead>
+            <tr class="header">
+                <th>Company</th>
+                <th>Title</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of findedCoupons" >
+                <td routerLink="/coupon-details/{{c.id}}">{{c.companyName}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.title}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.startDate}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.endDate}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.category}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.amount}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.description}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.price}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">
+                    <a routerLink="/coupon-details/{{c.id}}"> <img src="{{c.imageURL}}" alt="image"></a>
+                </td>
+                <td>
+                    <button type="button" class="btn" (click)="deleteCoupon(c.id)"><i class="fa fa-trash"></i></button>
+                </td>
+                <td>
+                    <button type="button" class="btn" routerLink="/compnay/company-coupon-update/{{c.id}}"><i class="fa fa-edit" ></i></button>
+                </td>
+                    
+                
+            </tr>
+            
+            
+        </tbody>
+    </table>
+    <div *ngIf="!coupons">
+        <br>
+        <a style="font-size: large;"> There is no Coupons in your company</a>
+        <br>
+       <a>To add a coupon click <a routerLink="/company/add-coupon">Here</a></a> 
+    </div>
+</div>

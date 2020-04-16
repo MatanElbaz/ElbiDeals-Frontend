@@ -1,0 +1,52 @@
+
+
+<section> 
+    <!-- <input required type="number" id="couponId" placeholder="Coupon ID" [(ngModel)]="couponId" name="couponId">
+<button (click)="getAllCoupons()">getCoupon</button> -->
+<div>
+    <table id="myTable" *ngIf="coupons" style=" border: 1px;">
+
+        <caption>
+            <h3>Coupons</h3>
+        </caption>
+        <thead>
+            <tr class="header">
+                <th>Company</th>
+                <th>Title</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of findedCoupons" >
+                
+                <td routerLink="/coupon-details/{{c.id}}">{{c.companyName}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.title}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.startDate}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.endDate}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.category}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.amount}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.description}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">{{c.price}}</td>
+                <td routerLink="/coupon-details/{{c.id}}">
+                <a routerLink="/coupon-details/{{c.id}}"> <img src="{{c.imageURL}}" alt="image"></a>
+                </td>
+                
+
+               
+                    
+                
+            </tr>
+            
+            
+        </tbody>
+    </table>
+
+    
+</div>
+</section>

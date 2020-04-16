@@ -1,0 +1,64 @@
+<form action="action_page.php" style="border:1px solid #ccc">
+    <div class="container">
+      <h1>Add new Customer</h1>
+      <p>Please fill in this form to create new customer.</p>
+      <hr class="sep-2" />
+  
+      <label for="first name"><b>Customer First Name</b></label>
+      <br>
+      <input ngModel type="text" name="customerFirstName" [formControl]= "customerFirstName" 
+      [ngClass]="{'invalid':customerFirstName.invalid && customerFirstName.touched}" placeholder="Customer first name.." >
+      <br>
+      <ul class="error" *ngIf="customerFirstName.dirty && customerFirstName.invalid">
+        <li *ngIf="customerFirstName.errors?.required && customerFirstName.touched">First name is required</li>
+        <li *ngIf="customerFirstName.errors?.minlength && customerFirstName.touched">First name too short. at least {{customerFirstName.errors.minlength.requiredLength}} characters</li>
+        <li *ngIf="customerFirstName.errors?.maxlength && customerFirstName.dirty">First name too long. max {{customerFirstName.errors.maxlength.requiredLength}} characters</li>
+        <li *ngIf="customerFirstName.dirty && customerFirstName.errors?.pattern">First name should start with a capital letter</li>
+      </ul>
+      <br>
+      <label for="last name"><b>Customer Last Name</b></label>
+      <br>
+      <input type="text" name="customerLastName" [formControl]= "customerLastName" 
+      [ngClass]="{'invalid':customerLastName.invalid && customerLastName.touched}" placeholder="Customer last name..">
+      <br>
+      <ul class="error" *ngIf="customerLastName.dirty && customerLastName.invalid">
+        <li *ngIf="customerLastName.errors?.required && customerLastName.touched">Last name is required</li>
+        <li *ngIf="customerLastName.errors?.minlength && customerLastName.touched">Last name too short. at least {{customerLastName.errors.minlength.requiredLength}} characters</li>
+        <li *ngIf="customerLastName.errors?.maxlength && customerLastName.dirty">Last name too long. max {{customerLastName.errors.maxlength.requiredLength}} characters</li>
+      </ul>
+      <br>
+      <label for="email"><b>Customer Email</b></label>
+      <br>
+      <input type="text" name="customerEmail" [formControl]= "customerEmail" 
+      [ngClass]="{'invalid':customerEmail.invalid && customerEmail.touched}" placeholder="Customer email..">
+      <br>
+      <ul class="error" *ngIf="customerEmail.dirty && customerEmail.invalid">
+        <li *ngIf="customerEmail.errors?.required && customerEmail.touched">Email is required</li>
+        <li *ngIf="customerEmail.dirty && customerEmail.errors?.pattern">Invalid Email</li>
+      </ul>
+      <br>
+      <label for="psw-repeat"><b>Customer Password</b></label>
+      <br>
+      <input type="password" name="customerPassword" [formControl]= "customerPassword" 
+      [ngClass]="{'invalid':customerPassword.invalid && customerPassword.touched}" placeholder="Customer password..">  
+      <br>
+      <ul class="error" *ngIf="customerPassword.dirty && customerPassword.invalid">
+      
+        <li *ngIf="customerPassword.errors?.minlength && customerPassword.touched">Password too short. at least {{customerPassword.errors.minlength.requiredLength}} characters</li>
+        <li *ngIf="customerPassword.errors?.maxlength && customerPassword.dirty">Password too long. max {{customerPassword.errors.maxlength.requiredLength}} characters</li>
+        <li *ngIf="customerPassword.errors?.required && customerPassword.touched">Password is required</li>
+        <li *ngIf="customerPassword.dirty && customerPassword.errors?.pattern">Invalid password</li>
+        
+      </ul>
+      <br>
+  
+      
+  
+      <div class="clearfix">
+        <button routerLink="/home" type="button" class="cancelbtn">Cancel</button>
+        <button class="signupbtn" [disabled]="!registrationForm.valid" (click)="addCustomer()">Add Comapny</button>
+        
+      </div>
+    </div>
+  </form>
+

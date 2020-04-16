@@ -1,0 +1,137 @@
+<form action="action_page.php" style="border:1px solid #ccc">
+    <div class="container">
+      <h1>Add new Coupon</h1>
+      <p>Please fill in this form to add a new coupon.</p>
+      <hr class="sep-2" />
+
+      <label for="psw"><b>Title</b></label>
+      <br>
+      <input type="text" name="title" [formControl]= "coupontitle" 
+      [ngClass]="{'invalid':coupontitle.invalid && coupontitle.touched}" placeholder="Title.." >
+      <br>
+      <ul class="error" *ngIf="coupontitle.dirty && coupontitle.invalid">
+      
+        <li *ngIf="coupontitle.errors?.minlength && coupontitle.touched">Title too short. at least {{coupontitle.errors.minlength.requiredLength}} characters</li>
+        <li *ngIf="coupontitle.errors?.maxlength && coupontitle.dirty">Title too long. max {{coupontitle.errors.maxlength.requiredLength}} characters</li>
+        <li *ngIf="coupontitle.errors?.required && coupontitle.touched">Title is required</li>
+        <li *ngIf="coupontitle.dirty && coupontitle.errors?.pattern">Invalid title, start with a capital letter</li>
+        
+      </ul>
+      <br>
+      <label for="psw-repeat"><b>Start Date</b></label>
+      <br>
+      <input type="date" name="startDate" [formControl]= "couponstartDate"
+      [ngClass]="{'invalid':couponstartDate.invalid && couponstartDate.touched}" placeholder="Start Date.." >
+      <br>
+      <ul class="error" *ngIf="couponstartDate.dirty && couponstartDate.invalid">
+      
+        <li *ngIf="couponstartDate.errors?.required && couponstartDate.touched">Start date is required</li>
+      </ul>
+      <br>
+      <label for="psw-repeat"><b>End Date</b></label>
+  <br>
+      <input type="date" name="endDate" [formControl]= "couponendDate" 
+      [ngClass]="{'invalid':couponendDate.invalid && couponendDate.touched}"placeholder="End Date.." >
+  <br> 
+  <ul class="error" *ngIf="couponendDate.dirty && couponendDate.invalid">
+      
+    <li *ngIf="couponendDate.errors?.required && couponendDate.touched">End date is required</li>
+  </ul>
+  <br> 
+      <label for="psw-repeat"><b>Category</b></label>
+  <br>
+      <input type="number" name="category" [formControl]= "couponcategory"
+      [ngClass]="{'invalid':couponcategory.invalid && couponcategory.touched}" placeholder="Category.." >
+  <br>
+  <ul class="error" *ngIf="couponcategory.dirty && couponcategory.invalid">
+    <li *ngIf="couponcategory.errors?.min && couponcategory.touched">Invalid category</li>
+    <li *ngIf="couponcategory.errors?.required && couponcategory.touched">Category is required</li>
+  </ul>
+  <br>
+      <label for="psw-repeat"><b>Amount</b></label>
+  <br>
+      <input type="number" name="amount" [formControl]= "couponamount" 
+      [ngClass]="{'invalid':couponamount.invalid && couponamount.touched}"placeholder="Amount.." >
+  <br>
+  <ul class="error" *ngIf="couponamount.dirty && couponamount.invalid">
+    <li *ngIf="couponamount.errors?.min && couponamount.touched">Invalid amount</li>
+    <li *ngIf="couponamount.errors?.required && couponamount.touched">Amount is required</li>
+  </ul>
+  <br>
+      <label for="psw-repeat"><b>Description</b></label>
+  <br>
+      <input type="text" name="description" [formControl]= "coupondescription" 
+      [ngClass]="{'invalid':coupondescription.invalid && coupondescription.touched}"placeholder="Description.." >
+  <br>
+  <ul class="error" *ngIf="coupondescription.dirty && coupondescription.invalid">
+      
+    <li *ngIf="coupondescription.errors?.minlength && coupondescription.touched">Description too short. at least {{coupondescription.errors.minlength.requiredLength}} characters</li>
+    <li *ngIf="coupondescription.errors?.maxlength && coupondescription.dirty">Description too long. max {{coupondescription.errors.maxlength.requiredLength}} characters</li>
+    <li *ngIf="coupondescription.errors?.required && coupondescription.touched">Description is required</li>
+    
+    
+  </ul>
+  <br>
+      <label for="psw-repeat"><b>Price</b></label>
+  <br>
+      <input type="number" name="price" [formControl]= "couponprice" 
+      [ngClass]="{'invalid':couponprice.invalid && couponprice.touched}"placeholder="price.." >
+  <br>
+  <ul class="error" *ngIf="couponprice.dirty && couponprice.invalid">
+    <li *ngIf="couponprice.errors?.min && couponprice.touched">Invalid price(min 10$)</li>
+    <li *ngIf="couponprice.errors?.required && couponprice.touched">Price is required</li>
+  </ul>
+  <br>
+      <label for="psw-repeat"><b>Image URL</b></label>
+  <br>
+      <input type="text" name="imageUrl" [formControl]= "couponimage"
+      [ngClass]="{'invalid':couponimage.invalid && couponimage.touched}"placeholder="image url.." >
+  <br>
+  <ul class="error" *ngIf="couponimage.dirty && couponimage.invalid">
+    <li *ngIf="couponimage.errors?.required && couponimage.touched">Image URL is required</li>
+
+  </ul>
+  
+  <br>
+      <div class="clearfix">
+        <button routerLink="/home" type="button" class="cancelbtn">Cancel</button>
+        <button class="signupbtn" [disabled]="!registrationForm.valid" (click)="addCoupon()">Add Coupon</button>
+        
+      </div>
+    </div>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>Add new coupon</h1>
+
+<form>
+    
+    Title: <input type="text" name="title" [formControl]= "coupontitle" placeholder="Title.." required>
+    <br>
+    Start Date: <input type="date" name="startDate" [formControl]= "couponstartDate" placeholder="Start Date.." required>
+    <br>
+    End Date: <input type="date" name="endDate" [formControl]= "couponendDate" placeholder="End Date.." required>
+    <br>
+    Category: <input type="number" name="category" [formControl]= "couponcategory" placeholder="Category.." required>
+    <br>
+    Amount: <input type="number" name="amount" [formControl]= "couponamount" placeholder="Amount.." required>
+    <br>
+    Description: <input type="text" name="description" [formControl]= "coupondescription" placeholder="Description.." required>
+    <br>
+    Price: <input type="number" name="price" [formControl]= "couponprice" placeholder="price.." required>
+    <br>
+
+<button (click)="addCoupon()">Add Coupon</button>
+</form>
+<br>
+<a routerLink="/home">Back to home</a> -->
